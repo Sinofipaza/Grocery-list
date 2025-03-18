@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Caveat', cursive;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('ppp.jpg');
+    background-position: center;
+    background-size: cover;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.paper {
+    /* background-color: #fff9e6; */
+    background-image: url("papeerr.jpg");
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Paper texture effect */
+.paper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+#todo-form {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 10px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+}
+
+#todo-input:focus {
+    border-bottom-color: #ffe79a;
+}
+
+button {
+    background-color: #fabc60;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #fce38a;
+}
+
+#todo-list {
+    list-style-type: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 5px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+    margin-bottom: 8px;
+}
+
+.todo-item:hover {
+    background-color: rgba(255, 243, 205, 0.7);
+}
+
+.todo-item .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.todo-item .checkbox {
+    appearance: none;
+    position: absolute;
+    top: 5px;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #666;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+
+.todo-item .checkbox:checked {
+    background-color: #fabc60;
+    border-color: #fabc60;
+}
+
+.todo-item .checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 3px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.todo-item .todo-text {
+    flex: 1;
+    font-size: 1.5rem;
+    word-break: break-word;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.todo-item .delete-btn {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0 5px;
+    margin-left: 5px;
+    margin-top: 6px;
+    opacity: 0;
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.todo-item:hover .delete-btn {
+    opacity: 1;
+}
+
+.todo-item .delete-btn:hover {
+    color: #fabc60;
+    background: none;
+}
+
+.empty-state {
+    text-align: center;
+    color: #888;
+    font-size: 1.3rem;
+    margin-top: 15px;
+}
